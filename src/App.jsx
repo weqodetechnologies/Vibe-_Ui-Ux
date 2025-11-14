@@ -1,18 +1,24 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HeroPage from "./componnets/HomePage/HeroPage";
-import HomePage from "./pages/homePage";
+import { useState } from 'react'
+import './App.css'
+import Navbar from './components/Navbar.jsx'
+import Home from './pages/home.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div>
-      <BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <Navbar />
+
+        {/* Routes */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
         </Routes>
-      </BrowserRouter>
-    </div>
-  );
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
