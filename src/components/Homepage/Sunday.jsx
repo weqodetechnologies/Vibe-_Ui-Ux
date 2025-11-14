@@ -2,6 +2,7 @@
 import React from "react";
 import BlueBtn from "../../components/ui/BlueBtn";
 import stars from "../../assets/stars.svg";
+import pinkQuote from "../../assets/pinkquote.svg";
 
 /* --- Badge --- */
 function Badge({ label }) {
@@ -30,17 +31,17 @@ function ExplorerCard() {
       <Badge label="Basic" />
 
       {/* Pills section */}
-      <div className="pt-3 px-6">
-        <div className="flex flex-col gap-3">
+      <div className="pt-4 px-5">
+        <div className="flex flex-col gap-1">
           <Pill text={`4 Sunday's`} />
           <Pill text="Explore The Career" />
         </div>
       </div>
 
-      {/* Content section: use flex-col + justify-between so button stays at bottom */}
+      {/* Content section */}
       <div
         className="px-6 pt-4 pb-6 text-left text-[#1E1E1E] flex flex-col justify-between"
-        style={{ minHeight: 420 }} // controls spacing so button sits lower
+        style={{ minHeight: 390 }}
       >
         <div>
           <h3 className="text-[36px] font-semibold leading-tight font-outfit">
@@ -59,8 +60,7 @@ function ExplorerCard() {
           </ul>
         </div>
 
-        {/* Button block pinned to bottom via justify-between; extra top margin removed */}
-        <div className="mt-6">
+        <div className="mt-2">
           <BlueBtn text="Become A Designer" />
         </div>
       </div>
@@ -68,33 +68,94 @@ function ExplorerCard() {
   );
 }
 
-/* --- Right: Testimonial Card --- */
+/* --- Right: Testimonial Card — matched to Figma (298 x 369, padding L19 R18) --- */
+/* --- Right: Testimonial Card — matched to Figma (298 x 369, padding L19 R18) --- */
 function TestimonialCard() {
   return (
-    <div className="flex flex-col items-center md:items-start">
-      <img src={stars} alt="stars" className="w-[300px] mb-6 object-contain" />
+    <div className="flex flex-col items-center">
+      {/* decorative stars above (optional) */}
+      <img src={stars} alt="stars" className="w-[300px] mb-62object-contain" />
 
       <div
-        className="bg-white rounded-[14px] p-6 shadow-lg"
-        style={{ border: "3px solid rgba(255,214,79,0.95)", width: 320 }}
+        className="relative bg-white rounded-[12px] shadow-lg mt-[55px]"
+        style={{
+          width: 250,
+          height: 300,
+          boxSizing: "border-box",
+          paddingTop: 29,
+          paddingLeft: 20,
+          paddingRight: 18,
+          paddingBottom: 18,
+          border: "3px solid rgba(255,214,79,0.98)",
+          borderRadius: 12,
+          overflow: "visible",
+        }}
       >
-        <div className="flex items-start gap-4">
-          <div className="w-[44px] h-[44px] rounded-full bg-[#F57EB6] flex items-center justify-center text-white text-2xl font-bold">
-            “
-          </div>
-          <div className="flex-1">
-            <p className="font-outfit font-semibold text-[16px] text-[#1E1E1E] leading-snug">
-              In Just 4 Sundays, The Mentorship Cleared My Basics And Gave Me Real
-              Clarity About UI/UX.
-            </p>
+        {/* pink circular quote icon */}
+        <img
+          src={pinkQuote}
+          alt="quote"
+          style={{
+            position: "absolute",
+            left: 20,
+            top: 18,
+            width: 68,
+            height: 68,
+            zIndex: 40,
+            background: "transparent",
+          }}
+        />
 
-            <div className="mt-4">
-              <p className="text-[#FFD64F] mb-1">★★★★★</p>
-              <p className="text-[#E8489A] font-outfit font-semibold">
-                Aishwarya Patil
-              </p>
-              <p className="text-[#383737] text-sm">B.Tech Student, Nagpur</p>
-            </div>
+        {/* Content (LEFT ALIGNED NOW) */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 10,
+            textAlign: "left", // ← THIS MAKES EVERYTHING LEFT ALIGNED
+            alignItems: "flex-start", // ← ensures items stick to left
+          }}
+        >
+          {/* LEFT ALIGNED PARAGRAPH */}
+          <p
+            className="font-outfit font-semibold text-[#1E1E1E] text-left"
+            style={{
+              fontSize: 18,
+              lineHeight: 1.38,
+              margin: 0,
+              maxWidth: 260,
+              marginTop: 60,
+            }}
+          >
+            In Just 4 Sundays, The Mentorship Cleared My Basics And Gave Me Real
+            Clarity About UI/UX.
+          </p>
+
+          {/* stars row - left aligned */}
+          <div style={{ color: "#FFD64F", fontSize: 14 }}>★★★★★</div>
+
+          {/* Name (left) */}
+          <div
+            style={{
+              color: "#E8489A",
+              fontWeight: 800,
+              fontSize: 16,
+              marginTop: -5, // reduced ↓↓↓
+              marginBottom: 0,
+            }}
+          >
+            Aishwarya Patil
+          </div>
+
+          {/* Role */}
+          <div
+            style={{
+              color: "#383737",
+              fontSize: 13,
+              marginTop: -5, // removed extra spacing
+            }}
+          >
+            B.Tech Student, Nagpur
           </div>
         </div>
       </div>
@@ -117,7 +178,7 @@ export default function Sunday() {
         </div>
 
         {/* Row with both cards */}
-        <div className="flex flex-col md:flex-row items-start justify-center gap-[55px]">
+        <div className="flex flex-col md:flex-row items-start justify-center gap-[200px]">
           <ExplorerCard />
           <TestimonialCard />
         </div>
