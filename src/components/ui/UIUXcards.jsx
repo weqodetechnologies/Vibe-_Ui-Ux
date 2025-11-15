@@ -1,5 +1,6 @@
+// src/ui/UIUXcards.jsx
 import React from "react";
-import BlueBtn from "./BlueBtn"; // ✅ imported the new BlueBtn component
+import BlueBtn from "./BlueBtn";
 
 function Badge({ label }) {
   return (
@@ -35,7 +36,6 @@ function Pill({ text }) {
 export default function UIUXCards() {
   const containerWidth = "w-[1144px]";
   const cardWidthClass = "w-[360px]";
-  const cardHeightClass = "h-[460px]";
   const gapXClass = "gap-x-[30px]";
 
   const cards = [
@@ -84,18 +84,19 @@ export default function UIUXCards() {
   ];
 
   return (
-    <div
-      className={`${containerWidth} ${cardHeightClass} mx-auto flex items-center justify-center`}
-    >
+    <div className={`${containerWidth} mx-auto flex items-center justify-center`}>
       <div className={`grid grid-cols-3 ${gapXClass}`}>
         {cards.map((c, i) => (
           <div
             key={i}
-            className={`${cardWidthClass} ${cardHeightClass} bg-[#FAF3EA] rounded-[18px] shadow-lg overflow-visible relative`}
+            className={`${cardWidthClass} bg-[#FAF3EA] rounded-[18px] shadow-lg 
+                        overflow-visible relative px-[24px] pt-[90px] pb-[32px] 
+                        flex flex-col`}
           >
+            {/* top badge */}
             <Badge label={c.badge} />
 
-            {/* Pills section */}
+            {/* Pills section (top left) */}
             <div className="absolute top-[18px] left-[20px] flex flex-col gap-[8px] z-0 items-start">
               {c.pills.map((p, idx) => (
                 <Pill key={idx} text={p.text} />
@@ -103,29 +104,30 @@ export default function UIUXCards() {
             </div>
 
             {/* Content section */}
-            <div className="absolute top-[100px] left-[23px] right-[24px] text-left text-[#1E1E1E] pb-[28px]">
-              <h3 className="text-[38px] font-semibold leading-tight font-outfit">
+            <div className="text-left text-[#1E1E1E] font-outfit flex-1">
+              <h3 className="text-[38px] font-semibold leading-tight">
                 {c.titleBlack}{" "}
                 <span className="text-[#E8489A]">{c.titleAccent}</span>
               </h3>
 
-              <p className="text-[16px] font-normal mt-1 text-[#2E2E2E] font-outfit">
+              <p className="text-[16px] font-normal mt-1 text-[#2E2E2E]">
                 {c.subtitle}
               </p>
 
-              <ul className="mt-4 space-y-2 text-[20px] font-medium text-[#1E1E1E] font-outfit max-w-[300px] mb-0 leading-snug">
+              <ul className="mt-4 space-y-2 text-[20px] font-medium max-w-[300px] leading-snug">
                 {c.points.map((pt, index) => (
                   <li key={index}>{pt}</li>
                 ))}
               </ul>
             </div>
 
-            {/* ✅ Replaced old button with imported BlueBtn */}
-            <BlueBtn text="Become A Designer" />
+            {/* Button – center & thoda niche */}
+            <div className="mt-6 flex justify-center">
+              <BlueBtn text="Become A Designer" />
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
 }
-  

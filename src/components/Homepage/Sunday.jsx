@@ -69,7 +69,6 @@ function ExplorerCard() {
 }
 
 /* --- Right: Testimonial Card — matched to Figma (298 x 369, padding L19 R18) --- */
-/* --- Right: Testimonial Card — matched to Figma (298 x 369, padding L19 R18) --- */
 function TestimonialCard() {
   return (
     <div className="flex flex-col items-center">

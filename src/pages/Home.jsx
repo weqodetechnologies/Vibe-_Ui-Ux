@@ -5,6 +5,8 @@ import Problems from '../components/Homepage/Problems'
 import UIUX from '../components/Homepage/uiux'
 import Sunday from '../components/Homepage/Sunday'
 import Incubator from '../components/Homepage/Incubator'
+import Testimonials from '../components/Homepage/Testimonial'
+import Unlock from '../components/Homepage/Unlock'
 
 
 function home() {
@@ -15,6 +17,8 @@ function home() {
       <UIUX />
       <Sunday />
       <Incubator />
+      <Testimonials />
+      <Unlock />
     </div>
   )
 }
