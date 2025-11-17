@@ -12,13 +12,13 @@ export default function Unlock() {
           flex flex-col md:flex-row
           md:items-center
           justify-between
-          rounded-[30px]   /* Figma corner radius 30 */
+          rounded-[30px]
           overflow-hidden
           shadow-lg
         "
         style={{
-          width: "100%",
-          maxWidth: "1280px",        // Figma width
+          width: "98.6%",
+          maxWidth: 1250,        // Figma width
           height: "400px",           // Figma height
           padding: "72px 80px",      // approx Figma inner padding
           background: "linear-gradient(90deg, #FFB658 47%, #C46E00 100%)",

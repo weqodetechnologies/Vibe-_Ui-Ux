@@ -42,7 +42,7 @@ export default function TestimonialsCarousel() {
 
   return (
     <section className="w-full py-20">
-      <div className="max-w-4xl mx-auto px-0 text-center mt-10">
+      <div className="max-w-4xl mx-auto px-0 text-center mt-4">
         <h2 className="text-[42px] font-semibold text-[#f0b458] leading-tight font-outfit">
           Testimonials
         </h2>
