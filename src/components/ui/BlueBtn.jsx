@@ -12,7 +12,7 @@ export default function BlueBtn({ text }) {
         shadow-[0_8px_20px_rgba(0,0,0,0.25)]
       "
       style={{
-        padding: "12px 36px",
+        padding: "9px 30px",
         fontSize: 16,
         background:
           "radial-gradient(100% 200% at 50% 0%,  #4E98FF 55%, #2564D8 100%)",
