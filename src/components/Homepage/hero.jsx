@@ -6,46 +6,30 @@ import Sticker3 from "../../assets/sticker3.svg";
 import Sticker4 from "../../assets/sticker4.svg";
 
 import mobile from "../../assets/mobile.svg";
-import introsquare from "../../assets/introsquare.svg";
-import goalsquare from "../../assets/goalsquare.svg";
 import grid from "../../assets/grid.svg";
 
-import BlueBtn from "../ui/BlueBtn"; // 👈 added
+import BlueBtn from "../ui/BlueBtn";
 
+// Stickers only
 const stickers = [
-  { id: 1, src: Sticker1, left: 180, top: 210, w: 84, h: 51, alt: "sticker1" },
-  { id: 2, src: Sticker2, left: 960, top: 210, w: 54, h: 71, alt: "sticker2" },
-  { id: 3, src: Sticker3, left: 60, top: 350, w: 54, h: 71, alt: "sticker3" },
-  { id: 4, src: Sticker4, left: 1100, top: 350, w: 54, h: 71, alt: "sticker4" },
-  { id: 6, src: mobile, left: 315, top: 440, w: 600, h: 400, alt: "mobile" },
-  {
-    id: 7,
-    src: introsquare,
-    left: 20,
-    top: 700,
-    w: 304,
-    h: 120,
-    alt: "introsquare",
-  },
-  {
-    id: 8,
-    src: goalsquare,
-    left: 910,
-    top: 700,
-    w: 304,
-    h: 120,
-    alt: "goalsquare",
-  },
+  { id: 1, src: Sticker1, left: 250, top: 260, w: 60, h: 71 },
+  { id: 2, src: Sticker2, left: 930, top: 260, w: 60, h: 71 },
+  { id: 3, src: Sticker3, left: 30, top: 400, w: 60, h: 71 },
+  { id: 4, src: Sticker4, left: 1100, top: 390, w: 60, h: 71 },
+
+  // ✅ Mobile mockup – perfect position, don't touch
+  { id: 6, src: mobile, left: 370, top: 300, w: 500, h: 420 },
 ];
 
-const testimonials = [
-  { id: 1, quote: "“Office Takes All My Time, Sessions Feel Impossible.”" },
-  { id: 2, quote: "“College eats my time, can’t attend sessions.”" },
-  {
-    id: 3,
-    quote: "“I just want course exposure, not a 3–6 month commitment.”",
-  },
-  { id: 4, quote: "“I’ve got the UI basics, just need the UX Strong.”" },
+// garland flags positions on the curve
+const flagPositions = [
+  { x: 150, y: 145 },
+  { x: 300, y: 175 },
+  { x: 450, y: 195 },
+  { x: 600, y: 180 },
+  { x: 750, y: 195 },
+  { x: 900, y: 175 },
+  { x: 1050, y: 145 },
 ];
 
 export default function Hero() {
@@ -59,53 +43,79 @@ export default function Hero() {
   return (
     <main
       style={{ backgroundImage: `url(${grid})` }}
-      className="mt-24 flex flex-col items-center text-center relative mx-auto pb-[500px] md:pb-[650px] bg-no-repeat bg-cover bg-center"
+      className="mt-24 flex flex-col items-center text-center relative mx-auto 
+                 pb-[750px] bg-no-repeat bg-cover bg-center"
     >
-      <h1
-        className="font-semibold text-white leading-[1.05]
-                   max-w-6xl text-3xl sm:text-4xl md:text-[56px]
-                   tracking-tight md:whitespace-nowrap z-10"
-      >
-        Because Great{" "}
-        <span className="text-[#FCC174] font-semibold">Design</span> Starts with
-        a <span className="text-[#FCC174] font-semibold">Vibe.</span>
+      {/* Heading */}
+      <h1 className="font-semibold text-white leading-[1.05] 
+                     max-w-6xl text-3xl sm:text-4xl md:text-[56px] tracking-tight">
+        Because Great <span className="text-[#FCC174]">Design</span> Starts with a{" "}
+        <span className="text-[#FCC174]">Vibe.</span>
       </h1>
 
-      <p
-        className="mt-5 text-gray-300 max-w-3xl
-                   text-[16px] sm:text-[18px] md:text-[26px]
-                   md:whitespace-nowrap z-10"
-      >
+      <p className="mt-5 text-gray-300 max-w-3xl text-[16px] sm:text-[18px] md:text-[26px]">
         Design every day. Live every pixel.
       </p>
 
-      {/* Buttons row */}
-      <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 z-10">
-        <button className="group px-8 py-3 rounded-full border-2 border-white text-white text-[16px] font-medium hover:bg-white hover:text-[#383737] transition duration-300 flex items-center gap-2">
+      {/* Buttons */}
+      <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+        <button className="group px-8 py-3 rounded-full border-2 border-white text-white text-[16px] font-medium hover:bg-white hover:text-[#383737] transition flex items-center gap-2">
           Explore Courses{" "}
-          <span className="text-xl group-hover:translate-x-1 transition-transform duration-300">
+          <span className="text-xl group-hover:translate-x-1 transition-transform">
             →
           </span>
         </button>
 
-        {/* Blue button using global component */}
         <BlueBtn text="Join Demo" />
       </div>
 
+      {/* Stickers + mobile */}
       {stickers.map((s) => (
         <img
           key={s.id}
           src={s.src}
-          alt={s.alt}
           style={{
             ...baseStickerStyle,
-            left: `${s.left}px`,
-            top: `${s.top}px`,
-            width: `${s.w}px`,
-            height: `${s.h}px`,
+            left: s.left,
+            top: s.top,
+            width: s.w,
+            height: s.h,
           }}
         />
       ))}
+
+      {/* ✅ Intro Card – mobile ke left side ke niche */}
+      <div
+        className="absolute bg-[#F8F3EC] shadow-lg rounded-2xl px-8 py-5"
+        style={{
+          left: "70px",
+          top: "560px",
+          width: "280px",
+        }}
+      >
+        <p className="text-[#383737] font-semibold mb-3">Introduction</p>
+        <div className="h-2 bg-[#D9D9D9] rounded-full mb-2 w-[90%]"></div>
+        <div className="h-2 bg-[#D9D9D9] rounded-full mb-2 w-[80%]"></div>
+        <div className="h-2 bg-[#FCC174] rounded-full w-[75%]"></div>
+      </div>
+
+      {/* ✅ Goals Card – mobile ke right side ke niche */}
+      <div
+        className="absolute bg-[#F8F3EC] shadow-lg rounded-2xl px-8 py-5"
+        style={{
+          left: "890px",
+          top: "560px",
+          width: "280px",
+        }}
+      >
+        <p className="text-[#383737] font-semibold mb-3">
+          Goals, Achievements
+        </p>
+        <div className="h-2 bg-[#D9D9D9] rounded-full mb-2 w-[90%]"></div>
+        <div className="h-2 bg-[#D9D9D9] rounded-full mb-2 w-[80%]"></div>
+        <div className="h-2 bg-[#FCC174] rounded-full w-[75%]"></div>
+      </div>
+
     </main>
   );
 }

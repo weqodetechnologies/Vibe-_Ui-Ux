@@ -7,7 +7,7 @@ import star2 from "../../assets/star2.svg";
 
 const stickers = [
   // Center girl
-  { id: "girl", src: girl, left: 260, top: 20, w: 240, h: 260, alt: "blog-girl", }, 
+  { id: "girl", src: girl, left: 260, top: -30, w: 290, h: 410, alt: "blog-girl", }, 
 
   // Stars around her
   {
@@ -50,7 +50,7 @@ const stickers = [
     id: "star5",
     src: star2,
     left: 130,
-    top: 240,
+    top: 300,
     w: 40,
     h: 40,
     alt: "star2-mid-right",
@@ -58,8 +58,8 @@ const stickers = [
   {
     id: "star6",
     src: star1,
-    left: -100,
-    top: 250,
+    left: -120,
+    top: 300,
     w: 14,
     h: 14,
     alt: "star1-bottom-left",
@@ -106,7 +106,7 @@ const stickers = [
     id: "star8",
     src: star1,
     left: 700,
-    top: 250,
+    top: 300,
     w: 32,
     h: 32,
     alt: "star1-mid-left",
@@ -123,7 +123,7 @@ const baseStickerStyle = {
 function Bloghero() {
   return (
     <div className="relative">
-      <h1 className="font-semibold text-white leading-[1.05] max-w-6xl text-3xl sm:text-4xl md:text-[56px] tracking-tight md:whitespace-nowrap z-10 mt-20 text-center mx-auto">
+      <h1 className="font-semibold text-white leading-[1.3] max-w-6xl text-3xl sm:text-4xl md:text-[49px] tracking-tight md:whitespace-nowrap z-10 mt-20 text-center mx-auto">
         Discover Fresh Ideas, Trends, and Perspectives <br />
         in{" "}
         <span className="text-[#FCC174] font-semibold mt-2">UI/UX Design</span>

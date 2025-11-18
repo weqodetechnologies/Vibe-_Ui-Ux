@@ -24,7 +24,7 @@ export default function Footer() {
         className="py-16 md:py-12 relative overflow-hidden"
         style={{
           backgroundColor: "#5835D2",
-          width: "100vw",
+          width: "99.5vw",
           marginLeft: "calc(50% - 50vw)",
           borderRadius: "36px",
         }}
